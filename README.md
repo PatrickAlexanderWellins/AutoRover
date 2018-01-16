@@ -1,4 +1,4 @@
-# AutoRover
+# Rover Project
 Build an autonomous rover to map terrain and pick up rock samples
 
 ## Functions for identifying rock samples and obstacle terrain
