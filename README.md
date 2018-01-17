@@ -1,11 +1,12 @@
 # Rover Project
-Build an autonomous rover to map terrain and pick up rock samples
+
+Objective - Program an autonomous rover to map terrain and pick up rock samples.
 
 ## Functions for identifying rock samples and obstacle terrain
 
 **Rock Identification**
 
-To find rocks I used a function called find_rocks that takes an image as input and a tuple called levels. The objective of this function is to take in a image that contains a rock and output an image that only contains the rock. This is done by turning specific pixel values in the RGB color channels to True or False and then converting these boolean values to zeros and ones to make a black and white image. A variable named color_select is initialized with zeros in with the same width and height dimensions as the rock image, but without the RGB layers. Indices that are True in rockpix convert the same indices in color_select to take on the value 1. 
+For rock identification and mapping, I used a function called 'find_rocks'. The 'find_rocks' function takes an image and a tuple called 'levels' as inputs. The objective of this function is to take the input image that contains a rock and apply color manipulations in a manner that isolate the rock in the image. The meaning of 'isolate' in this context means the rock shows up as white in the image, and everything that is not a rock in the image shows up as black. The tuple 'levels' contains three numerical values that determine which pixel values are True or False in the three color channels of the input image. These boolean values are stored in a variable named rockpix at specific indices. A variable named 'color_select' is initialized with zeros in with the same width and height dimensions as the rock image, but only one layer deep. The indices that have the value 'True' in rockpix set the corresponding indices 'color_select' to the number 1, all other values in 'color_select' remain with the value 0. The 'color_select' variable is the output of the 'find_rocks' function, this output image either contains an image of a white rock with a black background if a rock is present in the image, or a black background if there is no rock present in the image.
 
 **Obstacle Idendtification**
 
