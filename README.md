@@ -12,9 +12,7 @@ For rock identification and mapping, I used a function called 'find_rocks'. The 
 
 **Obstacle Idendtification**
 
-
-
-A variable called 'obs_map' converts the the color thresholded image into an image that represents the obstacles on the map. This is done by taking the color thresholded image that originally shows navigable terrain, subtracting one from the navigable terrain pixel values, then taking the absolute value of the of the new image. This has the effect of converting what is not navigable terrain into an obstacle. The obstacle image then goes through a final step of processing where the mask image clips the obstacle image. This has the effect of preventing what is outside the view of the Rover from being considered an obstacle.
+Obstacles are designated as terrain that is not navigable in the simulation environment. The images that are recorded while the rover is driving are converted to a 'warped' image. The warped image is a top down view of the environment that is in front of the rover. The warped image goes through a process where the pixel values are manipulated in a manner that produces a black and white version of the warped image. The white pixels in this new image represent the navigable terrain in the map, the black pixels represent the 'obstacle' terrain. To accurately map the obstacle terrain, all of the pixel values in the black and white warped image have the 1 subtracted. This creates an image that is represented by 0's and - 1's, the absolute value is taken to convert the - 1's to 1's. This process of identifying obstacles in the environment is the reverse of identifying navigable terrain. Identifying obstacles in the environment is a requirement to accurated creating a map of the environment. 
 
 ## Process Image Function
 
